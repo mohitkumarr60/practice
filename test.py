@@ -17,7 +17,6 @@ from llama_index.core import SQLDatabase
 from sqlalchemy import text
 from llama_index.core.query_engine import NLSQLTableQueryEngine
 
-
 load_dotenv()
 
 llm = Gemini(api_key=os.getenv('GEMINI_API_KEY'), model_name="models/gemini-pro")
@@ -60,7 +59,7 @@ for row in rows:
     with engine.begin() as connection:
         cursor = connection.execute(stmt)
 
-# view current table
+# view current tables
 stmt = select(
     city_stats_table.c.city_name,
     city_stats_table.c.population,
